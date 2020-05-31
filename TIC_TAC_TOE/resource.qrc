@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/icon_pack">
+        <file>icon/tic-tac-toe-game-svgrepo-com.svg</file>
+        <file>icon/title_word.png</file>
+        <file>icon/kisspng-logo-tic-tac-ultimate-tic-tac-toe-font-game-logo-5ac438cc956539.2794858415228090366119.png</file>
+        <file>icon/title.png</file>
+        <file>icon/close.png</file>
+        <file>icon/dot.png</file>
+        <file>icon/shut.png</file>
+    </qresource>
+</RCC>

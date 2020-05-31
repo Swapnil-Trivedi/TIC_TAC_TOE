@@ -6,4 +6,9 @@ TIC-TAC-TOE is a game everybody have been playing for a very long time. I was al
 This is my take on the classical game we all loved using Qt framework and C++
 
 ## CONTENTS
-
+I'll try to take you through most of the things explaining the basics of the Game.
+- Designing the layout for Menu and Game Screen
+- Adding stylesheets to beautify the application
+- Implementing Button functionalities
+- Game Collision mechanism to detect filled gaps
+- Implementing the Winning function to decide the Winner

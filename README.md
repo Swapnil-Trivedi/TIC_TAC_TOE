@@ -19,7 +19,7 @@ The very first thing we need is a clear picture of what we want to build.
 your main menu for the game can vary, but i decided to keep it simple.
 ![](/Screenshot/menu_layout.png)
 #### well keeping it simple. Here are some key points :
-- The Menu is pretty much self explanatory. We have a PLAY BUTTON a Exit Button and i decided to add About to make it look filling.
+- The Menu is pretty much self explanatory. We have a PLAY BUTTON ,Exit Button and I decided to add an About to make it look filling.
 - The Tic-Tac-Toe main image is on a label using Pixmap from the icon pack in Application resources.
 - In order to arrange everything is specific layout we use the GRID Layoout to keep everything together.
 
@@ -33,7 +33,13 @@ We added our buttons it won't look the same without StyleSheet.
 
 ### StyleSheet
 Let's Just beautify our buttons. Qt works with StyleSheets which are very very similar to CSS.
-Now I am not a Web Devloper or a Designer but we do have online CSS generators which are really helpfull and time saving.
+Now I am not a Web Devloper or a Designer but we do have online CSS generators which are really helpful and time saving.
+
+![](/Screenshot/Play_button_sheet.png)
+Our Online CSS Generator Works beautifully (LOL) but jokes apart it looks stunning.
+I did the same with the menu background and changed the Exit button color to red.
+
+### Attaching SIGNALS and SLOTS
 
 
 

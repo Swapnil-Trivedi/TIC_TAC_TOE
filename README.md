@@ -104,3 +104,119 @@ void Game::on_restart_clicked()
 
 
 ```
+### GAME COLLISION
+Well in tic-tac-toe you don't check an already checked box if that's not obviuous enough.
+But as I learned from experience you gotta make everything idiot proof.
+##### Boxcheck and deciding when to put X and O
+I kept things simple let's say X always go first and O after X.
+i declared a simple count variable to 0 and if it's zero we change icon of button to x and once clicked we change count value to 1 and if it's 1 we change button icon to O.
+also we need to mark every box we visit or click. so we simply make a 3x3 matrix also if we add button icon to X we mark matrix val 5 why 5 ?? you can have any value you like 5 just poped up out of nowhere for me and for ) let's go with 10.
+so our logic is something like this in Pseudo code
+```
+int count=0;
+int boxcheck[3][3];
+when clicked()
+{
+if(count==0 && boxcheck[i][j]==0)
+  set icon 'X'
+  set count 1
+else if (count == 1 && boxcheck[i][j]==0)
+  set icon 'O'
+  set count 0
+else if(boxcheck[i][j]!=0)
+  PoP Messsage "Invalid Move Box Already Occupiped"
+}
+```
+now let's actually code it up
+i linked row and column with button id to make it go easy now we just need to copy and change value for every individual button and we are good to go.
+```
+int h=ui->pushButton_11->height();
+    int w=ui->pushButton_11->width();
+    if(boxcheck[1][1]==0){
+    if(count==0 && boxcheck[1][1]==0)
+    {
+    ui->pushButton_11->setIcon(QIcon(":/icon_pack/icon/close.png"));
+    count=1;
+    boxcheck[1][1]=5;
+    }
+    else if(count==1 && boxcheck[1][1]==0)
+    {
+        ui->pushButton_11->setIcon(QIcon(":/icon_pack/icon/dot.png"));
+        count=0;
+        boxcheck[1][1]=10;
+    }
+   }
+    else if(boxcheck[1][1]!=0)
+    {
+       QMessageBox::information(this,"Info","Box Already Occupied!!\nChoose Another Box");
+    }
+    ui->pushButton_11->setIconSize(QSize(w-2,h-2));
+   //winner condition 
+   findwinner(boxcheck);
+```
+After adding functions to our button and collision detection this is what we have.
+![](Screenshot/gameplay.png)
+![](Screenshot/collison_error.png)
+now all we need is to decide who wins!!!
+
+### Deciding the Winner
+well we all are familiar with the rules in tic tac toe
+we have four conditions to satisfy
+- Row Win
+- Column Win
+- Primary Diagonal Win
+- Secondary Diagonal Win
+Also our boxcheck matrix with already registered values will come handy here/
+In PseudoCode this is what we need to check
+we need a counter to keep count of till 3. if count reach three we declare winner
+```
+//Row Check
+int xcount=0,ocount=0;
+for(int r=0;r<3;r++)
+{
+  for(int c=0;c<3;c++)
+    {
+    if(boxcheck[r][c]==5
+     xount++;
+    else if(boxcheck[r][c]==10)
+     ocount++;
+    }
+    if(xcount==3)
+      print X wins
+       break;
+    else if (ocount == 3)
+     print O wins
+      break;
+    else
+     reset xcount=ocount=0
+}
+
+//the same goes for row count
+xcount=ocount=0;
+for(int c=0;r<3;r++)
+{
+  for(int r=0;c<3;c++)
+    {
+    if(boxcheck[r][c]==5
+     xount++;
+    else if(boxcheck[r][c]==10)
+     ocount++;
+    }
+    if(xcount==3)
+      print X wins
+       break;
+    else if (ocount == 3)
+     print O wins
+      break;
+    else
+     reset xcount=ocount=0
+}
+// for primary diagonal wee add condition if r==c  and only then check
+//and for secondary we simply check if r+c>3
+```
+
+so we added the win functionality too. now we just call our function after every button click.
+now we are done with our game and this is what we have
+![](/Screenshot/Xrowwin.png)
+####
+So this is how i finally made my own version of TIC-TAC-TOE using QT and C++

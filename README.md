@@ -217,6 +217,7 @@ for(int c=0;r<3;r++)
 
 so we added the win functionality too. now we just call our function after every button click.
 now we are done with our game and this is what we have
+
 ![](/Screenshot/Xrowwin.png)
-####
-So this is how i finally made my own version of TIC-TAC-TOE using QT and C++
+
+#### So this is how i finally made my own version of TIC-TAC-TOE using QT and C++
